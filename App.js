@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+
+import TelaAdidas from './Components/Adidas/TenisAdidas';
+import TelaNike from './Components/Nike/TenisNike';
+import TelaMizuno from './Components/Mizuno/TenisMizuno';
+
+
+const Nav = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Nav.Navigator>
+        <Nav.Screen name='Adidas' component={TelaAdidas}/>
+        <Nav.Screen name='Nike' component={TelaNike}/>
+        <Nav.Screen name='Mizuno' component={TelaMizuno}/>
+      </Nav.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
